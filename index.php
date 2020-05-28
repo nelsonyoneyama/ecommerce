@@ -5,15 +5,12 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once("vendor/autoload.php");
 
 use \Slim\Slim;
-use \Hcode\Page;
-use \Hcode\PageAdmin;
-use \Hcode\Model\User;
-use \Hcode\Model\Category;
 
 $app = new Slim();
 
 $app->config('debug', true);
 
+require_once("funcions.php");
 require_once("site.php");
 require_once("admin.php");
 require_once("admin-users.php");
