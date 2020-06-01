@@ -34,10 +34,6 @@ $app->get("/categories/:idcategory", function($idcategory){
 			'page'=>$i
 		]);
 	}
-	//var_dump($category->getValues());
-	//var_dump($pagination["data"]);
-	//var_dump($pages);
-	//exit;
 
 	$page = new Page();
 
@@ -49,4 +45,18 @@ $app->get("/categories/:idcategory", function($idcategory){
 
 });
 
- ?>
+$app->get("/products/:desurl", function($desurl){
+
+	$product = new Product();
+
+	$product->getFromURL($desurl);
+
+	$page = new Page();
+
+	$page->setTpl("product-detail", [
+		'product'=>$product->getValues(),
+		'categories'=>$product->getCategories()
+	]);
+
+});
+
